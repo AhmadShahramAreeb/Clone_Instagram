@@ -1,4 +1,4 @@
-package com.example.clone_instagram
+package com.example.clone_instagram.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         * Firebase dan giriş bilgilerini isteyelim*/
         val currentUser = auth.currentUser
         if (currentUser != null){
-            val intent = Intent(this@MainActivity,FeedActivity::class.java)
+            val intent = Intent(this@MainActivity, FeedActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         if (email.isNotEmpty() && password.isNotEmpty()){
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
                 //Succed
-                val intent = Intent(this@MainActivity,FeedActivity::class.java)
+                val intent = Intent(this@MainActivity, FeedActivity::class.java)
                 startActivity(intent)
                 finish()
             }.addOnFailureListener {
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             * çünkü Firebase sunucusundan kullancı oluştur talebimizin sonucunu bilmiyoruz*/
             auth.createUserWithEmailAndPassword(email ,password).addOnSuccessListener {
                 //Succed dönerse burası çalışır
-                val intent = Intent(this@MainActivity,FeedActivity::class.java)
+                val intent = Intent(this@MainActivity, FeedActivity::class.java)
                 startActivity(intent)
                 finish() // bu ekrani kapatti
             }.addOnFailureListener {
